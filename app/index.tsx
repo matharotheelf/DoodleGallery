@@ -1,34 +1,41 @@
 import { Text, View, FlatList, ScrollView } from "react-native";
-import { PaperProvider, Appbar, Banner } from 'react-native-paper';
+import { Appbar, useTheme } from 'react-native-paper';
 import { AnimationCard } from '@/components/animation-card';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 export default function Index() {
-  return (
-    <PaperProvider>
-      <SafeAreaProvider>
-        <FlatList
-          ListHeaderComponent={() => (
-            <Appbar.Header>
-              <Appbar.Content titleStyle={{ textAlign: 'center' }} title="G a l l e r y  X Y Z" />
-            </Appbar.Header>
-          )}
+  const { colors } = useTheme();
 
-          data={[
-            {key: 'Devin'},
-            {key: 'Dan'},
-            {key: 'Dominic'},
-            {key: 'Jackson'},
-            {key: 'James'},
-            {key: 'Joel'},
-            {key: 'John'},
-            {key: 'Jillian'},
-            {key: 'Jimmy'},
-            {key: 'Julie'},
-          ]}
-          renderItem={({item}) => <AnimationCard />}
-        />
-      </SafeAreaProvider>
-    </PaperProvider>
+  return (
+    <FlatList style={{ backgroundColor: colors.primary }}
+      ListHeaderComponent={() => (
+        <Appbar.Header style={{ backgroundColor: colors.primary }}>
+          <Appbar.Content titleStyle={{ textAlign: 'center', color: colors.secondary }} title="Gallery  XYZ" />
+        </Appbar.Header>
+      )}
+
+      data={[
+         {
+          animationURI: "https://picsum.photos/700",
+          headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
+          footerText: "— La Rochefoucauld, Maxim 339",
+        },
+         {
+          animationURI: "https://picsum.photos/700",
+          headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
+          footerText: "— La Rochefoucauld, Maxim 339",
+        },
+         {
+          animationURI: "https://picsum.photos/700",
+          headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
+          footerText: "— La Rochefoucauld, Maxim 339",
+        },
+         {
+          animationURI: "https://picsum.photos/700",
+          headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
+          footerText: "— La Rochefoucauld, Maxim 339",
+        },
+      ]}
+      renderItem={({item}) => <AnimationCard animationURI={item.animationURI} headerText={item.headerText} footerText={item.footerText} />}
+    />
   );
 }
