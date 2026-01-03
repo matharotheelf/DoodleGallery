@@ -1,11 +1,42 @@
 import { Stack } from "expo-router";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { DefaultTheme, PaperProvider } from 'react-native-paper';
+import { DefaultTheme, PaperProvider, configureFonts } from 'react-native-paper';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect, useState } from 'react';
+import {useEffect} from 'react';
+import { EBGaramond_700Bold, EBGaramond_400Regular, useFonts } from '@expo-google-fonts/eb-garamond';
 
-// Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
+const fontConfig = {
+  web: {
+    bodyMedium: {
+      fontFamily: 'EBGaramond_400Regular',
+      fontWeight: 'normal',
+    },
+    titleLarge: {
+      fontFamily: 'EBGaramond_700Bold',
+      fontWeight: 'bold',
+    },
+  },
+  ios: {
+    bodyMedium: {
+      fontFamily: 'EBGaramond_400Regular',
+      fontWeight: 'normal',
+    },
+    titleLarge: {
+      fontFamily: 'EBGaramond_700Bold',
+      fontWeight: 'bold',
+    },
+  },
+  android: {
+    bodyMedium: {
+      fontFamily: 'EBGaramond_400Regular',
+      fontWeight: 'normal',
+    },
+    titleLarge: {
+      fontFamily: 'EBGaramond_700Bold',
+      fontWeight: 'bold',
+    },
+  }
+};
 
 const theme = {
   ...DefaultTheme,
@@ -15,32 +46,22 @@ const theme = {
     secondary: '#3E3E3F',
     tertiary: '#A9A9A9',
   },
+  fonts: configureFonts({config: fontConfig, isV3: false}),
 };
 
 export default function RootLayout() {
-  const [isReady, setIsReady] = useState(false);
+  const [loaded, error] = useFonts({
+    EBGaramond_700Bold,
+    EBGaramond_400Regular,
+  });
 
   useEffect(() => {
-    async function doAsyncStuff() {
-      try {
-        // do something async here
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setIsReady(true);
-      }
+    if (loaded || error) {
+      SplashScreen.hideAsync();
     }
+  }, [loaded, error]);
 
-    doAsyncStuff();
-  }, []);
-
-  useEffect(() => {
-    if (isReady) {
-      SplashScreen.hide();
-    }
-  }, [isReady]);
-
-  if (!isReady) {
+  if (!loaded && !error) {
     return null;
   }
 

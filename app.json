@@ -38,6 +38,15 @@
             "backgroundColor": "#000000"
           }
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/eb-garamond/700Bold/EBGaramond_700Bold.ttf",
+            "node_modules/@expo-google-fonts/eb-garamond/400Regular/EBGaramond_400Regular.ttf",
+          ]
+        }
       ]
     ],
     "experiments": {
