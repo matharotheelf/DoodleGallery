@@ -1,4 +1,4 @@
-import { Text, View, FlatList, ScrollView } from "react-native";
+import { StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
 import { Appbar, useTheme } from 'react-native-paper';
 import { AnimationCard } from '@/components/animation-card';
 
@@ -8,8 +8,8 @@ export default function Index() {
   return (
     <FlatList style={{ backgroundColor: colors.primary }}
       ListHeaderComponent={() => (
-        <Appbar.Header style={{ backgroundColor: colors.primary }}>
-          <Appbar.Content titleStyle={{ textAlign: 'center', color: colors.secondary }} title="Gallery  XYZ" />
+        <Appbar.Header style={[styles.header, { backgroundColor: colors.primary }]}>
+          <Appbar.Content titleStyle={[styles.headerTitle, { color: colors.secondary }]} title="GALLERY XYZ" />
         </Appbar.Header>
       )}
 
@@ -39,3 +39,15 @@ export default function Index() {
     />
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    paddingBottom: 10,
+    height: 100, 
+  },
+  headerTitle: {
+    letterSpacing: 8,
+    fontSize: 22,
+    textAlign: 'center',
+  },
+});

@@ -35,18 +35,21 @@ const styles = StyleSheet.create({
   },
   card: {
     borderRadius: 0,
-    marginBottom: 10,
+    marginBottom: 5,
   },
   textTop: {
     textAlign: "center",
     textAlignVertical: "center",
-    fontSize: 12,
-    paddingBottom: 15
+    fontSize: 15,
+    paddingBottom: 15,
+    paddingTop: 10,
+    height: 80
   },
   textBottom: {
     textAlign: "center",
     textAlignVertical: "center",
-    fontSize: 12,
-    paddingTop: 15
+    fontSize: 15,
+    paddingTop: 25,
+    height: 60
   },
 });
