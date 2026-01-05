@@ -44,7 +44,7 @@ export function AnimationPlayer({
       smoothedAnimationTimer = exponentialSmoothing(smoothedAnimationTimer, animationTimer, smoothingAlpha)
 
       player.currentTime = smoothedAnimationTimer;
-    }, 50);
+    }, 100);
   } 
 
   return (
