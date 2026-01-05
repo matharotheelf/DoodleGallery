@@ -13,7 +13,9 @@ export function AnimationPlayer({
 }: AnimationPlayerProps) {
 
   var animationTimer = 0;
-  var animationIncrement = 0.5;
+  var smoothedAnimationTimer = 0;
+  var smoothingAlpha = 0.1;
+  var animationIncrement = 3;
 
   const player = useVideoPlayer(animationURI, player => {
     player.loop = true;
@@ -27,13 +29,22 @@ export function AnimationPlayer({
     return Math.min(Math.max(num, 0), player.duration - 0.1);
   }
 
+  const exponentialSmoothing = (current: number, target: number, alpha: number): number => {
+    return current + (target - current) * alpha;
+  }
+
   const startAnimation = () => {
-    Gyroscope.setUpdateInterval(100)
+    Gyroscope.setUpdateInterval(200)
 
     Gyroscope.addListener(gyroscopeData => {
       animationTimer = clampToVideoDuration(animationTimer + gyroscopeData.y*animationIncrement);
-      player.currentTime = animationTimer;
     })
+    
+    const interval = setInterval(() => {
+      smoothedAnimationTimer = exponentialSmoothing(smoothedAnimationTimer, animationTimer, smoothingAlpha)
+
+      player.currentTime = smoothedAnimationTimer;
+    }, 50);
   } 
 
   return (
