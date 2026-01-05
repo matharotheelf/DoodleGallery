@@ -48,7 +48,13 @@
           ]
         }
       ],
-      "expo-video"
+      "expo-video",
+      [
+        "expo-sensors",
+        {
+          "motionPermission": "Allow $(PRODUCT_NAME) to access your device motion"
+        }
+      ],
     ],
     "experiments": {
       "typedRoutes": true,

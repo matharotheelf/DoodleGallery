@@ -2,6 +2,7 @@ import { useEvent } from 'expo';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import { StyleSheet, View, Button, Dimensions, Text } from 'react-native';
 import { useEffect, useState } from 'react';
+import { Gyroscope } from 'expo-sensors';
 
 export type AnimationPlayerProps = {
   animationURI?: string;
@@ -12,7 +13,7 @@ export function AnimationPlayer({
 }: AnimationPlayerProps) {
 
   var animationTimer = 0;
-  var animationIncrement = 0.1;
+  var animationIncrement = 0.5;
 
   const player = useVideoPlayer(animationURI, player => {
     player.loop = true;
@@ -27,13 +28,12 @@ export function AnimationPlayer({
   }
 
   const startAnimation = () => {
-    const interval = setInterval(() => {
-      animationTimer = clampToVideoDuration(animationTimer + animationIncrement);
-      player.currentTime = animationTimer;
-    }, 100);
+    Gyroscope.setUpdateInterval(100)
 
-    // Cleanup function to clear the interval when the component is unmounted
-    return () => clearInterval(interval);
+    Gyroscope.addListener(gyroscopeData => {
+      animationTimer = clampToVideoDuration(animationTimer + gyroscopeData.y*animationIncrement);
+      player.currentTime = animationTimer;
+    })
   } 
 
   return (
