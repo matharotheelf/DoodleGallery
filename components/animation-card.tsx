@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Avatar, Button, Card, Text, useTheme } from 'react-native-paper';
+import { AnimationPlayer } from '@/components/animation-player';
 
 export type AnimationCardProps = {
   headerText?: string,
@@ -21,10 +22,11 @@ export function AnimationCard({
       <Card.Content>
         <Text variant="bodyMedium" style={[styles.textTop, { color: colors.primary }]}>{headerText}</Text>
       </Card.Content>
-      <Card.Cover style={styles.cover} source={{ uri: animationURI }} />
+      <AnimationPlayer animationURI={animationURI} />
       <Card.Content>
         <Text variant="bodyMedium" style={[styles.textBottom, { color: colors.primary }]}>{footerText}</Text>
       </Card.Content>
+
     </Card>
   )
 };

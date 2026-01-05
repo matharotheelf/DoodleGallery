@@ -15,22 +15,12 @@ export default function Index() {
 
       data={[
          {
-          animationURI: "https://picsum.photos/700",
+          animationURI: "https://assets.imaginespace.io/reels/Suffering_Display.mp4",
           headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
           footerText: "— La Rochefoucauld, Maxim 339",
         },
          {
-          animationURI: "https://picsum.photos/700",
-          headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
-          footerText: "— La Rochefoucauld, Maxim 339",
-        },
-         {
-          animationURI: "https://picsum.photos/700",
-          headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
-          footerText: "— La Rochefoucauld, Maxim 339",
-        },
-         {
-          animationURI: "https://picsum.photos/700",
+          animationURI: "https://assets.imaginespace.io/reels/Piety_Vanity.mp4",
           headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
           footerText: "— La Rochefoucauld, Maxim 339",
         },

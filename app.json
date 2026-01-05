@@ -44,10 +44,11 @@
         {
           "fonts": [
             "node_modules/@expo-google-fonts/eb-garamond/700Bold/EBGaramond_700Bold.ttf",
-            "node_modules/@expo-google-fonts/eb-garamond/400Regular/EBGaramond_400Regular.ttf",
+            "node_modules/@expo-google-fonts/eb-garamond/400Regular/EBGaramond_400Regular.ttf"
           ]
         }
-      ]
+      ],
+      "expo-video"
     ],
     "experiments": {
       "typedRoutes": true,
