@@ -14,8 +14,8 @@ export function AnimationPlayer({
 
   var animationTimer = 0;
   var smoothedAnimationTimer = 0;
-  var smoothingAlpha = 0.1;
-  var animationIncrement = 3;
+  var smoothingAlpha = 0.75;
+  var animationIncrement = 1.5;
 
   const player = useVideoPlayer(animationURI, player => {
     player.loop = true;
