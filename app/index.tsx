@@ -15,17 +15,20 @@ export default function Index() {
 
       data={[
          {
-          animationURI: "https://assets.imaginespace.io/reels/Suffering_Display.mp4",
+          animationURI: "https://assets.imaginespace.io/reels/demo_2.mp4",
           headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
           footerText: "— La Rochefoucauld, Maxim 339",
+          thumbnailURI: "https://assets.imaginespace.io/reel_thumbnails/demo_2_thumbnail.png",
         },
          {
           animationURI: "https://assets.imaginespace.io/reels/Piety_Vanity.mp4",
           headerText: "\"We only confess our little faults to persuade people that we have no big ones.\"",
           footerText: "— La Rochefoucauld, Maxim 339",
+          thumbnailURI: "https://assets.imaginespace.io/reel_thumbnails/demo_2_thumbnail.png",
         },
       ]}
-      renderItem={({item}) => <AnimationCard animationURI={item.animationURI} headerText={item.headerText} footerText={item.footerText} />}
+      renderItem={({item}) => <AnimationCard animationURI={item.animationURI} thumbnailURI={item.thumbnailURI} 
+        headerText={item.headerText} footerText={item.footerText} />}
     />
   );
 }

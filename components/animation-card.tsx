@@ -7,12 +7,14 @@ export type AnimationCardProps = {
   headerText?: string,
   footerText?: string,
   animationURI?: string;
+  thumbnailURI?: string;
 };
 
 export function AnimationCard({
   headerText,
   footerText,
   animationURI,
+  thumbnailURI,
 }: AnimationCardProps) {
 
   const { colors } = useTheme();
@@ -22,7 +24,7 @@ export function AnimationCard({
       <Card.Content>
         <Text variant="bodyMedium" style={[styles.textTop, { color: colors.primary }]}>{headerText}</Text>
       </Card.Content>
-      <AnimationPlayer animationURI={animationURI} />
+      <AnimationPlayer animationURI={animationURI} thumbnailURI={thumbnailURI} />
       <Card.Content>
         <Text variant="bodyMedium" style={[styles.textBottom, { color: colors.primary }]}>{footerText}</Text>
       </Card.Content>
