@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Avatar, Button, Card, Text, useTheme } from 'react-native-paper';
-import { AnimationPlayer } from '@/components/animation-player';
+import { AnimationPlayer } from '@/app/components/animation-player';
 
 export type AnimationCardProps = {
   headerText?: string,

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
 import { Appbar, useTheme } from 'react-native-paper';
-import { AnimationCard } from '@/components/animation-card';
+import { AnimationCard } from '@/app/components/animation-card';
 
 export default function Index() {
   const { colors } = useTheme();

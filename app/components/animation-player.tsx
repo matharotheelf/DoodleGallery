@@ -46,9 +46,9 @@ export function AnimationPlayer({
     return current + (target - current) * alpha;
   }
 
-  Gyroscope.setUpdateInterval(200);
-
   const startAnimation = () => {
+    Gyroscope.setUpdateInterval(200);
+
     gyroscopeSubId.current ??= Gyroscope.addListener(gyroscopeData => {
       if(isAnimationActivated) {
         animationTimer.current = clampToVideoDuration(animationTimer.current + gyroscopeData.y*animationIncrement);
